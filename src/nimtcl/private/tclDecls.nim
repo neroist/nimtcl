@@ -221,7 +221,7 @@ proc callWhenDeleted*(interp: ptr Interp; `proc`: InterpDeleteProc;
 proc cancelIdleCall*(idleProc: IdleProc; clientData: ClientData = nil) {.cdecl,
     importc: "Tcl_CancelIdleCall", tcl.}
 
-proc close*(interp: ptr Interp; chan: tcl.Channel): cint {.cdecl, importc: "Tcl_Close", tcl.}
+proc close*(interp: ptr Interp; chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_Close", tcl.}
 
 proc commandComplete*(cmd: cstring): cint {.cdecl, importc: "Tcl_CommandComplete", tcl.}
 
@@ -242,14 +242,14 @@ proc createAliasObj*(childInterp: ptr Interp; childCmd: cstring; target: ptr Int
     importc: "Tcl_CreateAliasObj", tcl.}
 
 proc createChannel*(typePtr: ptr ChannelType; chanName: cstring;
-                   instanceData: ClientData = nil; mask: cint): tcl.Channel {.cdecl,
+                   instanceData: ClientData = nil; mask: cint): nimtcl.Channel {.cdecl,
     importc: "Tcl_CreateChannel", tcl.}
 
-proc createChannelHandler*(chan: tcl.Channel; mask: cint; `proc`: ChannelProc;
+proc createChannelHandler*(chan: nimtcl.Channel; mask: cint; `proc`: ChannelProc;
                           clientData: ClientData = nil) {.cdecl,
     importc: "Tcl_CreateChannelHandler", tcl.}
 
-proc createCloseHandler*(chan: tcl.Channel; `proc`: CloseProc; clientData: ClientData = nil) {.
+proc createCloseHandler*(chan: nimtcl.Channel; `proc`: CloseProc; clientData: ClientData = nil) {.
     cdecl, importc: "Tcl_CreateCloseHandler", tcl.}
 
 proc createCommand*(interp: ptr Interp; cmdName: cstring; `proc`: CmdProc;
@@ -286,11 +286,11 @@ proc createTrace*(interp: ptr Interp; level: cint; `proc`: CmdTraceProc;
 proc deleteAssocData*(interp: ptr Interp; name: cstring) {.cdecl,
     importc: "Tcl_DeleteAssocData", tcl.}
 
-proc deleteChannelHandler*(chan: tcl.Channel; `proc`: ChannelProc;
+proc deleteChannelHandler*(chan: nimtcl.Channel; `proc`: ChannelProc;
                           clientData: ClientData = nil) {.cdecl,
     importc: "Tcl_DeleteChannelHandler", tcl.}
 
-proc deleteCloseHandler*(chan: tcl.Channel; `proc`: CloseProc; clientData: ClientData = nil) {.
+proc deleteCloseHandler*(chan: nimtcl.Channel; `proc`: CloseProc; clientData: ClientData = nil) {.
     cdecl, importc: "Tcl_DeleteCloseHandler", tcl.}
 
 proc deleteCommand*(interp: ptr Interp; cmdName: cstring): cint {.cdecl,
@@ -357,7 +357,7 @@ proc dStringSetLength*(dsPtr: ptr DString; length: cint) {.cdecl,
 proc dStringStartSublist*(dsPtr: ptr DString) {.cdecl,
     importc: "Tcl_DStringStartSublist", tcl.}
 
-proc eof*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_Eof", tcl.}
+proc eof*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_Eof", tcl.}
 
 proc errnoId*(): cstring {.cdecl, importc: "Tcl_ErrnoId", tcl.}
 
@@ -409,7 +409,7 @@ proc findExecutable*(argv0: cstring) {.cdecl, importc: "Tcl_FindExecutable", tcl
 proc firstHashEntry*(tablePtr: ptr HashTable; searchPtr: ptr HashSearch): ptr HashEntry {.
     cdecl, importc: "Tcl_FirstHashEntry", tcl.}
 
-proc flush*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_Flush", tcl.}
+proc flush*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_Flush", tcl.}
 
 proc freeResult*(interp: ptr Interp) {.cdecl, importc: "Tcl_FreeResult", tcl.}
 
@@ -426,27 +426,27 @@ proc getAssocData*(interp: ptr Interp; name: cstring;
                   procPtr: ptr ptr InterpDeleteProc): ClientData {.cdecl,
     importc: "Tcl_GetAssocData", tcl.}
 
-proc getChannel*(interp: ptr Interp; chanName: cstring; modePtr: ptr cint): tcl.Channel {.
+proc getChannel*(interp: ptr Interp; chanName: cstring; modePtr: ptr cint): nimtcl.Channel {.
     cdecl, importc: "Tcl_GetChannel", tcl.}
 
-proc getChannelBufferSize*(chan: tcl.Channel): cint {.cdecl,
+proc getChannelBufferSize*(chan: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_GetChannelBufferSize", tcl.}
 
-proc getChannelHandle*(chan: tcl.Channel; direction: cint; handlePtr: ptr ClientData): cint {.
+proc getChannelHandle*(chan: nimtcl.Channel; direction: cint; handlePtr: ptr ClientData): cint {.
     cdecl, importc: "Tcl_GetChannelHandle", tcl.}
 
-proc getChannelInstanceData*(chan: tcl.Channel): ClientData {.cdecl,
+proc getChannelInstanceData*(chan: nimtcl.Channel): ClientData {.cdecl,
     importc: "Tcl_GetChannelInstanceData", tcl.}
 
-proc getChannelMode*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_GetChannelMode", tcl.}
+proc getChannelMode*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_GetChannelMode", tcl.}
 
-proc getChannelName*(chan: tcl.Channel): cstring {.cdecl, importc: "Tcl_GetChannelName", tcl.}
+proc getChannelName*(chan: nimtcl.Channel): cstring {.cdecl, importc: "Tcl_GetChannelName", tcl.}
 
-proc getChannelOption*(interp: ptr Interp; chan: tcl.Channel; optionName: cstring;
+proc getChannelOption*(interp: ptr Interp; chan: nimtcl.Channel; optionName: cstring;
                       dsPtr: ptr DString): cint {.cdecl,
     importc: "Tcl_GetChannelOption", tcl.}
 
-proc getChannelType*(chan: tcl.Channel): ptr ChannelType {.cdecl,
+proc getChannelType*(chan: nimtcl.Channel): ptr ChannelType {.cdecl,
     importc: "Tcl_GetChannelType", tcl.}
 
 proc getCommandInfo*(interp: ptr Interp; cmdName: cstring; infoPtr: ptr CmdInfo): cint {.
@@ -474,16 +474,16 @@ proc getOpenFile*(interp: ptr Interp; chanID: cstring; forWriting: cint;
 
 proc getPathType*(path: cstring): PathType {.cdecl, importc: "Tcl_GetPathType", tcl.}
 
-proc gets*(chan: tcl.Channel; dsPtr: ptr DString): cint {.cdecl, importc: "Tcl_Gets", tcl.}
+proc gets*(chan: nimtcl.Channel; dsPtr: ptr DString): cint {.cdecl, importc: "Tcl_Gets", tcl.}
 
-proc getsObj*(chan: tcl.Channel; objPtr: ptr Obj): cint {.cdecl, importc: "Tcl_GetsObj", tcl.}
+proc getsObj*(chan: nimtcl.Channel; objPtr: ptr Obj): cint {.cdecl, importc: "Tcl_GetsObj", tcl.}
 
 proc getServiceMode*(): cint {.cdecl, importc: "Tcl_GetServiceMode", tcl.}
 
 proc getSlave*(interp: ptr Interp; name: cstring): ptr Interp {.cdecl,
     importc: "Tcl_GetSlave", tcl.}
 
-proc getStdChannel*(`type`: cint): tcl.Channel {.cdecl, importc: "Tcl_GetStdChannel", tcl.}
+proc getStdChannel*(`type`: cint): nimtcl.Channel {.cdecl, importc: "Tcl_GetStdChannel", tcl.}
 
 proc getStringResult*(interp: ptr Interp): cstring {.cdecl,
     importc: "Tcl_GetStringResult", tcl.}
@@ -508,9 +508,9 @@ proc init*(interp: ptr Interp): cint {.cdecl, importc: "Tcl_Init", tcl.}
 proc initHashTable*(tablePtr: ptr HashTable; keyType: cint) {.cdecl,
     importc: "Tcl_InitHashTable", tcl.}
 
-proc inputBlocked*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_InputBlocked", tcl.}
+proc inputBlocked*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_InputBlocked", tcl.}
 
-proc inputBuffered*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_InputBuffered", tcl.}
+proc inputBuffered*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_InputBuffered", tcl.}
 
 proc interpDeleted*(interp: ptr Interp): cint {.cdecl, importc: "Tcl_InterpDeleted", tcl.}
 
@@ -522,12 +522,12 @@ proc joinPath*(argc: cint; argv: cstringArray; resultPtr: ptr DString): cstring 
 proc linkVar*(interp: ptr Interp; varName: cstring; `addr`: cstring; `type`: cint): cint {.
     cdecl, importc: "Tcl_LinkVar", tcl.}
 
-proc makeFileChannel*(handle: ClientData; mode: cint): tcl.Channel {.cdecl,
+proc makeFileChannel*(handle: ClientData; mode: cint): nimtcl.Channel {.cdecl,
     importc: "Tcl_MakeFileChannel", tcl.}
 
 proc makeSafe*(interp: ptr Interp): cint {.cdecl, importc: "Tcl_MakeSafe", tcl.}
 
-proc makeTcpClientChannel*(tcpSocket: ClientData): tcl.Channel {.cdecl,
+proc makeTcpClientChannel*(tcpSocket: ClientData): nimtcl.Channel {.cdecl,
     importc: "Tcl_MakeTcpClientChannel", tcl.}
 
 proc merge*(argc: cint; argv: cstringArray): cstring {.cdecl, importc: "Tcl_Merge", tcl.}
@@ -535,7 +535,7 @@ proc merge*(argc: cint; argv: cstringArray): cstring {.cdecl, importc: "Tcl_Merg
 proc nextHashEntry*(searchPtr: ptr HashSearch): ptr HashEntry {.cdecl,
     importc: "Tcl_NextHashEntry", tcl.}
 
-proc notifyChannel*(channel: tcl.Channel; mask: cint) {.cdecl,
+proc notifyChannel*(channel: nimtcl.Channel; mask: cint) {.cdecl,
     importc: "Tcl_NotifyChannel", tcl.}
 
 proc objGetVar2*(interp: ptr Interp; part1Ptr: ptr Obj; part2Ptr: ptr Obj; flags: cint): ptr Obj {.
@@ -545,19 +545,19 @@ proc objSetVar2*(interp: ptr Interp; part1Ptr: ptr Obj; part2Ptr: ptr Obj;
                 newValuePtr: ptr Obj; flags: cint): ptr Obj {.cdecl,
     importc: "Tcl_ObjSetVar2", tcl.}
 
-proc openCommandChannel*(interp: ptr Interp; argc: cint; argv: cstringArray; flags: cint): tcl.Channel {.
+proc openCommandChannel*(interp: ptr Interp; argc: cint; argv: cstringArray; flags: cint): nimtcl.Channel {.
     cdecl, importc: "Tcl_OpenCommandChannel", tcl.}
 
 proc openFileChannel*(interp: ptr Interp; fileName: cstring; modeString: cstring;
-                     permissions: cint): tcl.Channel {.cdecl,
+                     permissions: cint): nimtcl.Channel {.cdecl,
     importc: "Tcl_OpenFileChannel", tcl.}
 
 proc openTcpClient*(interp: ptr Interp; port: cint; address: cstring; myaddr: cstring;
-                   myport: cint; flags: cint): tcl.Channel {.cdecl,
+                   myport: cint; flags: cint): nimtcl.Channel {.cdecl,
     importc: "Tcl_OpenTcpClient", tcl.}
 
 proc openTcpServer*(interp: ptr Interp; port: cint; host: cstring;
-                   acceptProc: TcpAcceptProc; callbackData: ClientData = nil): tcl.Channel {.
+                   acceptProc: TcpAcceptProc; callbackData: ClientData = nil): nimtcl.Channel {.
     cdecl, importc: "Tcl_OpenTcpServer", tcl.}
 
 proc preserve*(data: ClientData) {.cdecl, importc: "Tcl_Preserve", tcl.}
@@ -572,7 +572,7 @@ proc posixError*(interp: ptr Interp): cstring {.cdecl, importc: "Tcl_PosixError"
 proc queueEvent*(evPtr: ptr Event; position: QueuePosition) {.cdecl,
     importc: "Tcl_QueueEvent", tcl.}
 
-proc read*(chan: tcl.Channel; bufPtr: cstring; toRead: cint): cint {.cdecl,
+proc read*(chan: nimtcl.Channel; bufPtr: cstring; toRead: cint): cint {.cdecl,
     importc: "Tcl_Read", tcl.}
 
 proc reapDetachedProcs*() {.cdecl, importc: "Tcl_ReapDetachedProcs", tcl.}
@@ -583,7 +583,7 @@ proc recordAndEval*(interp: ptr Interp; cmd: cstring; flags: cint): cint {.cdecl
 proc recordAndEvalObj*(interp: ptr Interp; cmdPtr: ptr Obj; flags: cint): cint {.cdecl,
     importc: "Tcl_RecordAndEvalObj", tcl.}
 
-proc registerChannel*(interp: ptr Interp; chan: tcl.Channel) {.cdecl,
+proc registerChannel*(interp: ptr Interp; chan: nimtcl.Channel) {.cdecl,
     importc: "Tcl_RegisterChannel", tcl.}
 
 proc registerObjType*(typePtr: ptr ObjType) {.cdecl, importc: "Tcl_RegisterObjType", tcl.}
@@ -610,7 +610,7 @@ proc scanElement*(src: cstring; flagPtr: ptr cint): cint {.cdecl,
 proc scanCountedElement*(src: cstring; length: cint; flagPtr: ptr cint): cint {.cdecl,
     importc: "Tcl_ScanCountedElement", tcl.}
 
-proc seekOld*(chan: tcl.Channel; offset: cint; mode: cint): cint {.cdecl,
+proc seekOld*(chan: nimtcl.Channel; offset: cint; mode: cint): cint {.cdecl,
     importc: "Tcl_SeekOld", tcl.}
 
 proc serviceAll*(): cint {.cdecl, importc: "Tcl_ServiceAll", tcl.}
@@ -620,10 +620,10 @@ proc serviceEvent*(flags: cint): cint {.cdecl, importc: "Tcl_ServiceEvent", tcl.
 proc setAssocData*(interp: ptr Interp; name: cstring; `proc`: InterpDeleteProc;
                   clientData: ClientData = nil) {.cdecl, importc: "Tcl_SetAssocData", tcl.}
 
-proc setChannelBufferSize*(chan: tcl.Channel; sz: cint) {.cdecl,
+proc setChannelBufferSize*(chan: nimtcl.Channel; sz: cint) {.cdecl,
     importc: "Tcl_SetChannelBufferSize", tcl.}
 
-proc setChannelOption*(interp: ptr Interp; chan: tcl.Channel; optionName: cstring;
+proc setChannelOption*(interp: ptr Interp; chan: nimtcl.Channel; optionName: cstring;
                       newValue: cstring): cint {.cdecl,
     importc: "Tcl_SetChannelOption", tcl.}
 
@@ -652,7 +652,7 @@ proc setObjErrorCode*(interp: ptr Interp; errorObjPtr: ptr Obj) {.cdecl,
 proc setObjResult*(interp: ptr Interp; resultObjPtr: ptr Obj) {.cdecl,
     importc: "Tcl_SetObjResult", tcl.}
 
-proc setStdChannel*(channel: tcl.Channel; `type`: cint) {.cdecl,
+proc setStdChannel*(channel: nimtcl.Channel; `type`: cint) {.cdecl,
     importc: "Tcl_SetStdChannel", tcl.}
 
 proc setVar*(interp: ptr Interp; varName: cstring; newValue: cstring; flags: cint): cstring {.
@@ -680,7 +680,7 @@ proc staticPackage*(interp: ptr Interp; prefix: cstring;
 proc stringMatch*(str: cstring; pattern: cstring): cint {.cdecl,
     importc: "Tcl_StringMatch", tcl.}
 
-proc tellOld*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_TellOld", tcl.}
+proc tellOld*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_TellOld", tcl.}
 
 proc traceVar*(interp: ptr Interp; varName: cstring; flags: cint;
               `proc`: VarTraceProc; clientData: ClientData = nil): cint {.cdecl,
@@ -693,12 +693,12 @@ proc traceVar2*(interp: ptr Interp; part1: cstring; part2: cstring; flags: cint;
 proc translateFileName*(interp: ptr Interp; name: cstring; bufferPtr: ptr DString): cstring {.
     cdecl, importc: "Tcl_TranslateFileName", tcl.}
 
-proc ungets*(chan: tcl.Channel; str: cstring; len: cint; atHead: cint): cint {.cdecl,
+proc ungets*(chan: nimtcl.Channel; str: cstring; len: cint; atHead: cint): cint {.cdecl,
     importc: "Tcl_Ungets", tcl.}
 
 proc unlinkVar*(interp: ptr Interp; varName: cstring) {.cdecl, importc: "Tcl_UnlinkVar", tcl.}
 
-proc unregisterChannel*(interp: ptr Interp; chan: tcl.Channel): cint {.cdecl,
+proc unregisterChannel*(interp: ptr Interp; chan: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_UnregisterChannel", tcl.}
 
 proc unsetVar*(interp: ptr Interp; varName: cstring; flags: cint): cint {.cdecl,
@@ -734,7 +734,7 @@ proc varTraceInfo2*(interp: ptr Interp; part1: cstring; part2: cstring; flags: c
                    procPtr: VarTraceProc; prevclientData: ClientData = nil): ClientData {.
     cdecl, importc: "Tcl_VarTraceInfo2", tcl.}
 
-proc write*(chan: tcl.Channel; s: cstring; slen: cint): cint {.cdecl, importc: "Tcl_Write", tcl.}
+proc write*(chan: nimtcl.Channel; s: cstring; slen: cint): cint {.cdecl, importc: "Tcl_Write", tcl.}
 
 proc wrongNumArgs*(interp: ptr Interp; objc: cint; objv: ptr ptr Obj; message: cstring) {.
     cdecl, importc: "Tcl_WrongNumArgs", tcl.}
@@ -786,13 +786,13 @@ proc getVersion*(major: ptr cint; minor: ptr cint; patchLevel: ptr cint; `type`:
 proc initMemory*(interp: ptr Interp) {.cdecl, importc: "Tcl_InitMemory", tcl.}
 
 proc stackChannel*(interp: ptr Interp; typePtr: ptr ChannelType;
-                  instanceData: ClientData = nil; mask: cint; prevChan: tcl.Channel): tcl.Channel {.
+                  instanceData: ClientData = nil; mask: cint; prevChan: nimtcl.Channel): nimtcl.Channel {.
     cdecl, importc: "Tcl_StackChannel", tcl.}
 
-proc unstackChannel*(interp: ptr Interp; chan: tcl.Channel): cint {.cdecl,
+proc unstackChannel*(interp: ptr Interp; chan: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_UnstackChannel", tcl.}
 
-proc getStackedChannel*(chan: tcl.Channel): tcl.Channel {.cdecl,
+proc getStackedChannel*(chan: nimtcl.Channel): nimtcl.Channel {.cdecl,
     importc: "Tcl_GetStackedChannel", tcl.}
 
 proc setMainLoop*(`proc`: MainLoopProc) {.cdecl, importc: "Tcl_SetMainLoop", tcl.}
@@ -871,7 +871,7 @@ proc conditionWait*(condPtr: ptr Condition; mutexPtr: ptr Mutex; timePtr: ptr Ti
 
 proc numUtfChars*(src: cstring; length: cint): cint {.cdecl, importc: "Tcl_NumUtfChars", tcl.}
 
-proc readChars*(channel: tcl.Channel; objPtr: ptr Obj; charsToRead: cint; appendFlag: cint): cint {.
+proc readChars*(channel: nimtcl.Channel; objPtr: ptr Obj; charsToRead: cint; appendFlag: cint): cint {.
     cdecl, importc: "Tcl_ReadChars", tcl.}
 
 proc restoreResult*(interp: ptr Interp; statePtr: ptr SavedResult) {.cdecl,
@@ -938,10 +938,10 @@ proc utfToUniChar*(src: cstring; chPtr: ptr UniChar): cint {.cdecl,
 
 proc utfToUpper*(src: cstring): cint {.cdecl, importc: "Tcl_UtfToUpper", tcl.}
 
-proc writeChars*(chan: tcl.Channel; src: cstring; srcLen: cint): cint {.cdecl,
+proc writeChars*(chan: nimtcl.Channel; src: cstring; srcLen: cint): cint {.cdecl,
     importc: "Tcl_WriteChars", tcl.}
 
-proc writeObj*(chan: tcl.Channel; objPtr: ptr Obj): cint {.cdecl, importc: "Tcl_WriteObj", tcl.}
+proc writeObj*(chan: nimtcl.Channel; objPtr: ptr Obj): cint {.cdecl, importc: "Tcl_WriteObj", tcl.}
 
 proc getString*(objPtr: ptr Obj): cstring {.cdecl, importc: "Tcl_GetString", tcl.}
 
@@ -1085,71 +1085,71 @@ proc createThread*(idPtr: ptr ThreadId; `proc`: ThreadCreateProc;
                   clientData: ClientData = nil; stackSize: cint; flags: cint): cint {.cdecl,
     importc: "Tcl_CreateThread", tcl.}
 
-proc readRaw*(chan: tcl.Channel; dst: cstring; bytesToRead: cint): cint {.cdecl,
+proc readRaw*(chan: nimtcl.Channel; dst: cstring; bytesToRead: cint): cint {.cdecl,
     importc: "Tcl_ReadRaw", tcl.}
 
-proc writeRaw*(chan: tcl.Channel; src: cstring; srcLen: cint): cint {.cdecl,
+proc writeRaw*(chan: nimtcl.Channel; src: cstring; srcLen: cint): cint {.cdecl,
     importc: "Tcl_WriteRaw", tcl.}
 
-proc getTopChannel*(chan: tcl.Channel): tcl.Channel {.cdecl, importc: "Tcl_GetTopChannel", tcl.}
+proc getTopChannel*(chan: nimtcl.Channel): nimtcl.Channel {.cdecl, importc: "Tcl_GetTopChannel", tcl.}
 
-proc channelBuffered*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_ChannelBuffered", tcl.}
+proc channelBuffered*(chan: nimtcl.Channel): cint {.cdecl, importc: "nimtcl.ChannelBuffered", tcl.}
 
 proc channelName*(chanTypePtr: ptr ChannelType): cstring {.cdecl,
-    importc: "Tcl_ChannelName", tcl.}
+    importc: "nimtcl.ChannelName", tcl.}
 
 proc channelVersion*(chanTypePtr: ptr ChannelType): ChannelTypeVersion {.cdecl,
-    importc: "Tcl_ChannelVersion", tcl.}
+    importc: "nimtcl.ChannelVersion", tcl.}
 
 proc channelBlockModeProc*(chanTypePtr: ptr ChannelType): DriverBlockModeProc {.
-    cdecl, importc: "Tcl_ChannelBlockModeProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelBlockModeProc", tcl.}
 
 proc channelCloseProc*(chanTypePtr: ptr ChannelType): DriverCloseProc {.cdecl,
-    importc: "Tcl_ChannelCloseProc", tcl.}
+    importc: "nimtcl.ChannelCloseProc", tcl.}
 
 proc channelClose2Proc*(chanTypePtr: ptr ChannelType): DriverClose2Proc {.cdecl,
-    importc: "Tcl_ChannelClose2Proc", tcl.}
+    importc: "nimtcl.ChannelClose2Proc", tcl.}
 
 proc channelInputProc*(chanTypePtr: ptr ChannelType): DriverInputProc {.cdecl,
-    importc: "Tcl_ChannelInputProc", tcl.}
+    importc: "nimtcl.ChannelInputProc", tcl.}
 
 proc channelOutputProc*(chanTypePtr: ptr ChannelType): DriverOutputProc {.cdecl,
-    importc: "Tcl_ChannelOutputProc", tcl.}
+    importc: "nimtcl.ChannelOutputProc", tcl.}
 
 proc channelSeekProc*(chanTypePtr: ptr ChannelType): DriverSeekProc {.cdecl,
-    importc: "Tcl_ChannelSeekProc", tcl.}
+    importc: "nimtcl.ChannelSeekProc", tcl.}
 
 proc channelSetOptionProc*(chanTypePtr: ptr ChannelType): DriverSetOptionProc {.
-    cdecl, importc: "Tcl_ChannelSetOptionProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelSetOptionProc", tcl.}
 
 proc channelGetOptionProc*(chanTypePtr: ptr ChannelType): DriverGetOptionProc {.
-    cdecl, importc: "Tcl_ChannelGetOptionProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelGetOptionProc", tcl.}
 
 proc channelWatchProc*(chanTypePtr: ptr ChannelType): DriverWatchProc {.cdecl,
-    importc: "Tcl_ChannelWatchProc", tcl.}
+    importc: "nimtcl.ChannelWatchProc", tcl.}
 
 proc channelGetHandleProc*(chanTypePtr: ptr ChannelType): DriverGetHandleProc {.
-    cdecl, importc: "Tcl_ChannelGetHandleProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelGetHandleProc", tcl.}
 
 proc channelFlushProc*(chanTypePtr: ptr ChannelType): DriverFlushProc {.cdecl,
-    importc: "Tcl_ChannelFlushProc", tcl.}
+    importc: "nimtcl.ChannelFlushProc", tcl.}
 
 proc channelHandlerProc*(chanTypePtr: ptr ChannelType): DriverHandlerProc {.cdecl,
-    importc: "Tcl_ChannelHandlerProc", tcl.}
+    importc: "nimtcl.ChannelHandlerProc", tcl.}
 
 proc joinThread*(threadId: ThreadId; result: ptr cint): cint {.cdecl,
     importc: "Tcl_JoinThread", tcl.}
 
-proc isChannelShared*(channel: tcl.Channel): cint {.cdecl, importc: "Tcl_IsChannelShared", tcl.}
+proc isChannelShared*(channel: nimtcl.Channel): cint {.cdecl, importc: "Tcl_IsChannelShared", tcl.}
 
-proc isChannelRegistered*(interp: ptr Interp; channel: tcl.Channel): cint {.cdecl,
+proc isChannelRegistered*(interp: ptr Interp; channel: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_IsChannelRegistered", tcl.}
 
-proc cutChannel*(channel: tcl.Channel) {.cdecl, importc: "Tcl_CutChannel", tcl.}
+proc cutChannel*(channel: nimtcl.Channel) {.cdecl, importc: "Tcl_CutChannel", tcl.}
 
-proc spliceChannel*(channel: tcl.Channel) {.cdecl, importc: "Tcl_SpliceChannel", tcl.}
+proc spliceChannel*(channel: nimtcl.Channel) {.cdecl, importc: "Tcl_SpliceChannel", tcl.}
 
-proc clearChannelHandlers*(channel: tcl.Channel) {.cdecl,
+proc clearChannelHandlers*(channel: nimtcl.Channel) {.cdecl,
     importc: "Tcl_ClearChannelHandlers", tcl.}
 
 proc isChannelExisting*(channelName: cstring): cint {.cdecl,
@@ -1200,7 +1200,7 @@ proc attemptDbCkrealloc*(`ptr`: cstring; size: cuint; file: cstring; line: cint)
 proc attemptSetObjLength*(objPtr: ptr Obj; length: cint): cint {.cdecl,
     importc: "Tcl_AttemptSetObjLength", tcl.}
 
-proc getChannelThread*(channel: tcl.Channel): ThreadId {.cdecl,
+proc getChannelThread*(channel: nimtcl.Channel): ThreadId {.cdecl,
     importc: "Tcl_GetChannelThread", tcl.}
 
 proc getUnicodeFromObj*(objPtr: ptr Obj; lengthPtr: ptr cint): ptr UniChar {.cdecl,
@@ -1217,10 +1217,10 @@ proc listMathFuncs*(interp: ptr Interp; pattern: cstring): ptr Obj {.cdecl,
 proc substObj*(interp: ptr Interp; objPtr: ptr Obj; flags: cint): ptr Obj {.cdecl,
     importc: "Tcl_SubstObj", tcl.}
 
-proc detachChannel*(interp: ptr Interp; channel: tcl.Channel): cint {.cdecl,
+proc detachChannel*(interp: ptr Interp; channel: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_DetachChannel", tcl.}
 
-proc isStandardChannel*(channel: tcl.Channel): cint {.cdecl,
+proc isStandardChannel*(channel: nimtcl.Channel): cint {.cdecl,
     importc: "Tcl_IsStandardChannel", tcl.}
 
 proc fSCopyFile*(srcPathPtr: ptr Obj; destPathPtr: ptr Obj): cint {.cdecl,
@@ -1272,7 +1272,7 @@ proc fSFileAttrStrings*(pathPtr: ptr Obj; objPtrRef: ptr ptr Obj): cstringArray 
 proc fSAccess*(pathPtr: ptr Obj; mode: cint): cint {.cdecl, importc: "Tcl_FSAccess", tcl.}
 
 proc fSOpenFileChannel*(interp: ptr Interp; pathPtr: ptr Obj; modeString: cstring;
-                       permissions: cint): tcl.Channel {.cdecl,
+                       permissions: cint): nimtcl.Channel {.cdecl,
     importc: "Tcl_FSOpenFileChannel", tcl.}
 
 proc fSGetCwd*(interp: ptr Interp): ptr Obj {.cdecl, importc: "Tcl_FSGetCwd", tcl.}
@@ -1335,7 +1335,7 @@ proc fSGetFileSystemForPath*(pathPtr: ptr Obj): ptr Filesystem {.cdecl,
 
 proc fSGetPathType*(pathPtr: ptr Obj): PathType {.cdecl, importc: "Tcl_FSGetPathType", tcl.}
 
-proc outputBuffered*(chan: tcl.Channel): cint {.cdecl, importc: "Tcl_OutputBuffered", tcl.}
+proc outputBuffered*(chan: nimtcl.Channel): cint {.cdecl, importc: "Tcl_OutputBuffered", tcl.}
 
 proc fSMountsChanged*(fsPtr: ptr Filesystem) {.cdecl, importc: "Tcl_FSMountsChanged", tcl.}
 
@@ -1368,13 +1368,13 @@ proc setWideIntObj*(objPtr: ptr Obj; wideValue: WideInt) {.cdecl,
 
 proc allocStatBuf*(): ptr StatBuf {.cdecl, importc: "Tcl_AllocStatBuf", tcl.}
 
-proc seek*(chan: tcl.Channel; offset: WideInt; mode: cint): WideInt {.cdecl,
+proc seek*(chan: nimtcl.Channel; offset: WideInt; mode: cint): WideInt {.cdecl,
     importc: "Tcl_Seek", tcl.}
 
-proc tell*(chan: tcl.Channel): WideInt {.cdecl, importc: "Tcl_Tell", tcl.}
+proc tell*(chan: nimtcl.Channel): WideInt {.cdecl, importc: "Tcl_Tell", tcl.}
 
 proc channelWideSeekProc*(chanTypePtr: ptr ChannelType): DriverWideSeekProc {.
-    cdecl, importc: "Tcl_ChannelWideSeekProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelWideSeekProc", tcl.}
 
 proc dictObjPut*(interp: ptr Interp; dictPtr: ptr Obj; keyPtr: ptr Obj; valuePtr: ptr Obj): cint {.
     cdecl, importc: "Tcl_DictObjPut", tcl.}
@@ -1564,7 +1564,7 @@ proc queryTimeProc*(getProc: ptr ptr GetTimeProc; scaleProc: ptr ptr ScaleTimePr
                    clientData: ptr ClientData) {.cdecl, importc: "Tcl_QueryTimeProc", tcl.}
 
 proc channelThreadActionProc*(chanTypePtr: ptr ChannelType): DriverThreadActionProc {.
-    cdecl, importc: "Tcl_ChannelThreadActionProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelThreadActionProc", tcl.}
 
 # proc newBignumObj*(value: ptr MpInt): ptr Obj {.cdecl, importc: "Tcl_NewBignumObj", tcl.}
 
@@ -1579,11 +1579,11 @@ proc channelThreadActionProc*(chanTypePtr: ptr ChannelType): DriverThreadActionP
 # proc takeBignumFromObj*(interp: ptr Interp; obj: ptr Obj; value: ptr MpInt): cint {.cdecl,
 #     importc: "Tcl_TakeBignumFromObj", tcl.}
 
-proc truncateChannel*(chan: tcl.Channel; length: WideInt): cint {.cdecl,
+proc truncateChannel*(chan: nimtcl.Channel; length: WideInt): cint {.cdecl,
     importc: "Tcl_TruncateChannel", tcl.}
 
 proc channelTruncateProc*(chanTypePtr: ptr ChannelType): DriverTruncateProc {.
-    cdecl, importc: "Tcl_ChannelTruncateProc", tcl.}
+    cdecl, importc: "nimtcl.ChannelTruncateProc", tcl.}
 
 proc setChannelErrorInterp*(interp: ptr Interp; msg: ptr Obj) {.cdecl,
     importc: "Tcl_SetChannelErrorInterp", tcl.}
@@ -1591,10 +1591,10 @@ proc setChannelErrorInterp*(interp: ptr Interp; msg: ptr Obj) {.cdecl,
 proc getChannelErrorInterp*(interp: ptr Interp; msg: ptr ptr Obj) {.cdecl,
     importc: "Tcl_GetChannelErrorInterp", tcl.}
 
-proc setChannelError*(chan: tcl.Channel; msg: ptr Obj) {.cdecl,
+proc setChannelError*(chan: nimtcl.Channel; msg: ptr Obj) {.cdecl,
     importc: "Tcl_SetChannelError", tcl.}
 
-proc getChannelError*(chan: tcl.Channel; msg: ptr ptr Obj) {.cdecl,
+proc getChannelError*(chan: nimtcl.Channel; msg: ptr ptr Obj) {.cdecl,
     importc: "Tcl_GetChannelError", tcl.}
 
 # proc initBignumFromDouble*(interp: ptr Interp; initval: cdouble; toInit: ptr MpInt): cint {.
@@ -1646,7 +1646,7 @@ proc cancelEval*(interp: ptr Interp; resultObjPtr: ptr Obj; clientData: ClientDa
 
 proc canceled*(interp: ptr Interp; flags: cint): cint {.cdecl, importc: "Tcl_Canceled", tcl.}
 
-proc createPipe*(interp: ptr Interp; rchan: ptr tcl.Channel; wchan: ptr tcl.Channel; flags: cint): cint {.
+proc createPipe*(interp: ptr Interp; rchan: ptr nimtcl.Channel; wchan: ptr nimtcl.Channel; flags: cint): cint {.
     cdecl, importc: "Tcl_CreatePipe", tcl.}
 
 proc nRCreateCommand*(interp: ptr Interp; cmdName: cstring; `proc`: ObjCmdProc;
@@ -1778,7 +1778,7 @@ proc setStartupScript*(path: ptr Obj; encoding: cstring) {.cdecl,
 proc getStartupScript*(encodingPtr: cstringArray): ptr Obj {.cdecl,
     importc: "Tcl_GetStartupScript", tcl.}
 
-proc closeEx*(interp: ptr Interp; chan: tcl.Channel; flags: cint): cint {.cdecl,
+proc closeEx*(interp: ptr Interp; chan: nimtcl.Channel; flags: cint): cint {.cdecl,
     importc: "Tcl_CloseEx", tcl.}
 
 proc nRExprObj*(interp: ptr Interp; objPtr: ptr Obj; resultPtr: ptr Obj): cint {.cdecl,

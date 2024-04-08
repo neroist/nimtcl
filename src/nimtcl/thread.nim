@@ -1,4 +1,4 @@
-import ../tcl
+import ../nimtcl
 
 when defined(windows): 
   const tclthreadDll {.strdefine.} = "thread(280|281|282|284|285|286|287|288|289|290).dll"

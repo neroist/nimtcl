@@ -1,4 +1,4 @@
-import ../tcl
+import ../nimtcl
 
 when defined(windows): 
   const pngtclDll {.strdefine.} = "pngtcl1639.dll"

@@ -11,7 +11,7 @@ type
 
 proc imgInit*(interp: ptr Interp): cint {.cdecl, importc: "Tkimg_Init", tkimg.}
 proc imgSafeInit*(interp: ptr Interp): cint {.cdecl, importc: "Tkimg_SafeInit", tkimg.}
-proc openFileChannel*(interp: ptr Interp; fileName: cstring; permissions: cint): tcl.Channel {.
+proc openFileChannel*(interp: ptr Interp; fileName: cstring; permissions: cint): nimtcl.Channel {.
     cdecl, importc: "tkimg_OpenFileChannel", tkimg.}
 
 proc readInit*(data: ptr Obj; c: cint; handle: ptr MFile): cint {.cdecl,

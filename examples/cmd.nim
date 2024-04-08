@@ -1,4 +1,4 @@
-import tcl
+import nimtcl
 
 let interp = createInterp()
 

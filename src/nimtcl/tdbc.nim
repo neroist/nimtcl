@@ -1,4 +1,4 @@
-import ../tcl
+import ../nimtcl
 
 when defined(windows): 
   const tdbcDll {.strdefine.} = "tdbc(110|111|112|113|114|115|116|117|118).dll"

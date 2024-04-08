@@ -4,9 +4,9 @@ import std/strutils  # used by loki
 import std/sequtils  # used by loki
 import std/options   # used by loki
 
-import tcl/tk
+import nimtcl/tk
+import nimtcl
 import loki
-import tcl
 
 # create the tcl interpreter
 let interp = createInterp()

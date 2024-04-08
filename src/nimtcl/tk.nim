@@ -1,6 +1,6 @@
 import ./x11/xlib
 import ./x11/x
-import ../tcl
+import ../nimtcl
 
 when defined(windows): 
   const tkDll {.strdefine.} = "tk(86|85|84|83|82|81).dll"
@@ -529,12 +529,12 @@ type
     pixelSize*: cint
     offset*: array[4, cint]
 
-  ImageFileMatchProc* = proc (chan: tcl.Channel; fileName: cstring; format: ptr Obj;
+  ImageFileMatchProc* = proc (chan: nimtcl.Channel; fileName: cstring; format: ptr Obj;
                            widthPtr: ptr cint; heightPtr: ptr cint; interp: ptr Interp): cint {.
       cdecl.}
   ImageStringMatchProc* = proc (dataObj: ptr Obj; format: ptr Obj; widthPtr: ptr cint;
                              heightPtr: ptr cint; interp: ptr Interp): cint {.cdecl.}
-  ImageFileReadProc* = proc (interp: ptr Interp; chan: tcl.Channel; fileName: cstring;
+  ImageFileReadProc* = proc (interp: ptr Interp; chan: nimtcl.Channel; fileName: cstring;
                           format: ptr Obj; imageHandle: PhotoHandle; destX: cint;
                           destY: cint; width: cint; height: cint; srcX: cint; srcY: cint): cint {.
       cdecl.}

@@ -1,4 +1,4 @@
-import ../../tcl
+import ../../nimtcl
 import ../tk
 
 when defined(windows): 

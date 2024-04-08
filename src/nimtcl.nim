@@ -740,48 +740,9 @@ proc pkgInitStubsCheck*(interp: ptr Interp; version: cstring; exact: cint): cstr
     cdecl, importc: "Tcl_PkgInitStubsCheck", tcl.}
 proc getMemoryInfo*(dsPtr: ptr DString) {.cdecl, importc: "Tcl_GetMemoryInfo", tcl.}
 
-include ./tcl/private/tclDecls
+include ./nimtcl/private/tclDecls
 
-proc appInit1(interp: ptr Interp): cint {.cdecl.} =
-  return interp.init()
-
-var appInit*: AppInitProc = appInit1
-
-when isMainModule:
-  import ./tcl/thread
-  import ./tcl/zlib
-  import ./tcl/jpeg
-  import ./tcl/png
-  import ./tcl/tk/img
-  import ./tcl/tk
-
-  let x = createInterp()
-
-  echo x.init()
-  echo x.tkInit()
-  echo x.eval(
-    """
-    package require Tk
-
-    label .x -text "X: "
-    entry .ex -textvar x
-    label .y -text "Y: "
-    entry .ey -textvar y
-
-    button .badd -text "Add"
-    label .res -text "Result: "
-
-    grid .x .ex -padx 5 -pady 2.5
-    grid .y .ey .badd -padx 5 -pady 2.5
-    grid .res -padx 5 -pady 2.5
-
-    focus .ex
-
-    .badd config -command {
-      set z [expr {$x + $y}]
-      .res config -text "Result: $z"
-    }
-    """
-  )
-
-  mainLoop()
+# proc appInit1(interp: ptr Interp): cint {.cdecl.} =
+#   return interp.init()
+# 
+# var appInit*: AppInitProc = appInit1
