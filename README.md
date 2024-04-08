@@ -1,4 +1,4 @@
-# tcl
+# nimtcl
 
 Low level bindings for Tcl & Tk for Nim
 
