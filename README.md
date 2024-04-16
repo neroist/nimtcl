@@ -7,7 +7,7 @@ Low level bindings for Tcl & Tk for Nim
 You may install using `nimble`
 
 ```sh
-nimble install https://github.com/neroist/nim-tcl
+nimble install https://github.com/neroist/nimtcl
 ```
 
 However, this library depends on a Tcl 8.6 installation. There are many ways to install Tcl;
