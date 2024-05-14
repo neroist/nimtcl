@@ -3,7 +3,7 @@ import ./x11/x
 import ../nimtcl
 
 when defined(windows): 
-  const tkDll {.strdefine.} = "tk(86|85|84|83|82|81).dll"
+  const tkDll {.strdefine.} = "tk(86|85|84|83|82|81)(|t).dll"
 elif defined(macosx): 
   const tkDll {.strdefine.} = "libtk(8.6|8.5|8.4|8.3|8.2|8.1).dylib"
 else: 
@@ -148,6 +148,8 @@ const
   TK_ELEMENT_STATE_PRESSED* = 1 shl 3
 
 type
+  Bool* = cint
+
   ImageModel* = ImageMaster
 
   BindingTable* = pointer

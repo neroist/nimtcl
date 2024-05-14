@@ -3,9 +3,9 @@ import ../nimtcl
 when defined(windows): 
   const zlibtclDll {.strdefine.} = "zlibtcl1213.dll"
 elif defined(macosx): 
-  const zlibtclDll {.strdefine.} = "libzlibtcl1213.dylib"
+  const zlibtclDll {.strdefine.} = "libzlibtcl1.2.(14|13|12|11|10).dylib"
 else: 
-  const zlibtclDll {.strdefine.} = "libzlibtcl1213.so(|.1|.0)"
+  const zlibtclDll {.strdefine.} = "libzlibtcl1.2.(14|13|12|11|10).so(|.1|.0)"
 
 {.pragma: zlibtcl, dynlib: zlibtclDll, discardable.}
 

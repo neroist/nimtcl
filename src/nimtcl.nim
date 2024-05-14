@@ -1,5 +1,5 @@
 when defined(windows): 
-  const tclDll {.strdefine.} = "tcl(86|85|84|83|82|81).dll"
+  const tclDll {.strdefine.} = "tcl(86|85|84|83|82|81)(|t).dll"
 elif defined(macosx): 
   const tclDll {.strdefine.} = "libtcl(8.6|8.5|8.4|8.3|8.2|8.1).dylib"
 else: 

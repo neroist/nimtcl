@@ -3,9 +3,9 @@ import ../nimtcl
 when defined(windows): 
   const tdbcDll {.strdefine.} = "tdbc(110|111|112|113|114|115|116|117|118).dll"
 elif defined(macosx): 
-  const tdbcDll {.strdefine.} = "libtdbc(110|111|112|113|114|115|116|117|118).dylib"
+  const tdbcDll {.strdefine.} = "libtdbc(1.1.0|1.1.1|1.1.2|1.1.3|1.1.4|1.1.5|1.1.6|1.1.7|1.1.8).dylib"
 else: 
-  const tdbcDll {.strdefine.} = "libtdbc(110|111|112|113|114|115|116|117|118).so(|.1|.0)"
+  const tdbcDll {.strdefine.} = "libtdbc(1.1.0|1.1.1|1.1.2|1.1.3|1.1.4|1.1.5|1.1.6|1.1.7|1.1.8).so(|.1|.0)"
 
 {.pragma: tdbc, dynlib: tdbcDll, discardable.}
 
